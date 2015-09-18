@@ -14,8 +14,9 @@ enableSentences false;
 // F3 - View Distance
 setViewDistance 2500;
 
-// F3 - Name Tags
-// [10] call F_fnc_setupNameTags;
+// For TVTs: Delete unoccupied vehicles after safe start ends
+// list them like [west, east] or [true] for everyone
+[west, east, independent] execVM "pabst\deleteEmptyVehicles.sqf";
 
 // BWMF - Mission Timer/Safe Start
 if (!isNil "PABST_fnc_safeStart") then {[] spawn PABST_fnc_safeStart;};
