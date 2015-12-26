@@ -1,30 +1,30 @@
 // Colors
-#define RED [1,0,0,1];
-#define GREEN [0,1,0,1];
-#define BLUE [0,0,1,1];
-#define YELLOW [1,1,0,1];
-#define ORANGE [1,0.647,0,1];
-#define BLACK [0,0,0,1];
-#define PINK [1,0.753,0.796,1];
-#define WHITE [1,1,1,1];
+#define RED [1,0,0,1]
+#define GREEN [0,1,0,1]
+#define BLUE [0,0,1,1]
+#define YELLOW [1,1,0,1]
+#define ORANGE [1,0.647,0,1]
+#define BLACK [0,0,0,1]
+#define PINK [1,0.753,0.796,1]
+#define WHITE [1,1,1,1]
 // Icon Paths
-#define FIRETEAM_ICON "\A3\ui_f\data\map\markers\nato\b_inf.paa";
-#define UNKNOWN_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa";
-#define HQ_ICON "\A3\ui_f\data\map\markers\nato\bHQ_ICON.paa";
-#define SUPPORT_ICON "\A3\ui_f\data\map\markers\nato\b_support.paa"; // MMG HMG
-#define SUPPORT_AT_ICON "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa"; // MAT HAT
-#define RECON_ICON "\A3\ui_f\data\map\markers\nato\b_recon.paa"; // Sniper
-#define MORTAR_ICON "\A3\ui_f\data\map\markers\nato\b_mortar.paa"; // Mortar
-#define MAINTENANCE_ICON "\A3\ui_f\data\map\markers\nato\b_maint.paa"; // Engineers
-#define MECH_ICON "\A3\ui_f\data\map\markers\nato\b_mech_inf.paa"; // IFV/APC
-#define ARMOR_ICON "\A3\ui_f\data\map\markers\nato\b_armor.paa"; // Tank
-#define AIR_ICON "\A3\ui_f\data\map\markers\nato\b_air.paa"; // Helos
-#define PLANE_ICON "\A3\ui_f\data\map\markers\nato\b_plane.paa"; // Planes
-#define ARTILLERY_ICON "\A3\ui_f\data\map\markers\nato\b_art.paa"; // Artillery
-#define MEDIC_ICON "\A3\ui_f\data\map\markers\nato\bMEDIC_ICON.paa"; // Medic
+#define FIRETEAM_ICON "\A3\ui_f\data\map\markers\nato\b_inf.paa"
+#define UNKNOWN_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
+#define HQ_ICON "\A3\ui_f\data\map\markers\nato\bHQ_ICON.paa"
+#define SUPPORT_ICON "\A3\ui_f\data\map\markers\nato\b_support.paa" // MMG HMG
+#define SUPPORT_AT_ICON "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa" // MAT HAT
+#define RECON_ICON "\A3\ui_f\data\map\markers\nato\b_recon.paa" // Sniper
+#define MORTAR_ICON "\A3\ui_f\data\map\markers\nato\b_mortar.paa" // Mortar
+#define MAINTENANCE_ICON "\A3\ui_f\data\map\markers\nato\b_maint.paa" // Engineers
+#define MECH_ICON "\A3\ui_f\data\map\markers\nato\b_mech_inf.paa" // IFV/APC
+#define ARMOR_ICON "\A3\ui_f\data\map\markers\nato\b_armor.paa" // Tank
+#define AIR_ICON "\A3\ui_f\data\map\markers\nato\b_air.paa" // Helos
+#define PLANE_ICON "\A3\ui_f\data\map\markers\nato\b_plane.paa" // Planes
+#define ARTILLERY_ICON "\A3\ui_f\data\map\markers\nato\b_art.paa" // Artillery
+#define MEDIC_ICON "\A3\ui_f\data\map\markers\nato\bMEDIC_ICON.paa" // Medic
 // Sizes
-#define NORMAL_SIZE [24, 24];
-#define SMALL_SIZE [16, 16];
+#define NORMAL_SIZE [24, 24]
+#define SMALL_SIZE [16, 16]
 
 params ["_input"];
 
