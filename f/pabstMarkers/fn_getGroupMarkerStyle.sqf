@@ -10,7 +10,7 @@
 // Icon Paths
 #define FIRETEAM_ICON "\A3\ui_f\data\map\markers\nato\b_inf.paa"
 #define UNKNOWN_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa"
-#define HQ_ICON "\A3\ui_f\data\map\markers\nato\bHQ_ICON.paa"
+#define HQ_ICON "\A3\ui_f\data\map\markers\nato\b_hq.paa"
 #define SUPPORT_ICON "\A3\ui_f\data\map\markers\nato\b_support.paa" // MMG HMG
 #define SUPPORT_AT_ICON "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa" // MAT HAT
 #define RECON_ICON "\A3\ui_f\data\map\markers\nato\b_recon.paa" // Sniper
@@ -21,7 +21,7 @@
 #define AIR_ICON "\A3\ui_f\data\map\markers\nato\b_air.paa" // Helos
 #define PLANE_ICON "\A3\ui_f\data\map\markers\nato\b_plane.paa" // Planes
 #define ARTILLERY_ICON "\A3\ui_f\data\map\markers\nato\b_art.paa" // Artillery
-#define MEDIC_ICON "\A3\ui_f\data\map\markers\nato\bMEDIC_ICON.paa" // Medic
+#define MEDIC_ICON "\A3\ui_f\data\map\markers\nato\b_med.paa" // Medic
 // Sizes
 #define NORMAL_SIZE [24, 24]
 #define SMALL_SIZE [16, 16]
