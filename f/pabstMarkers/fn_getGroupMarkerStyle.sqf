@@ -1,176 +1,73 @@
-private ["_red","_green","_blue","_yellow","_orange","_black","_pink","_white","_fireteam","_unknown","_hq","_support","_supportAT","_recon","_mortar","_maint","_mech","_armor","_air","_plane","_artillery","_med","_size","_input","_texture","_color"];
-// data values
-_red = [1,0,0,1];
-_green = [0,1,0,1];
-_blue = [0,0,1,1];
-_yellow = [1,1,0,1];
-_orange  = [1,0.647,0,1];
-_black = [0,0,0,1];
-_pink = [1,0.753,0.796,1];
-_white = [1,1,1,1];
-_fireteam = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
-_unknown = "\A3\ui_f\data\map\markers\nato\b_unknown.paa";
-_hq = "\A3\ui_f\data\map\markers\nato\b_hq.paa";
-_support = "\A3\ui_f\data\map\markers\nato\b_support.paa"; // MMG HMG
-_supportAT = "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa"; // MAT HAT
-_recon = "\A3\ui_f\data\map\markers\nato\b_recon.paa"; // Sniper
-_mortar = "\A3\ui_f\data\map\markers\nato\b_mortar.paa"; // Mortar
-_maint = "\A3\ui_f\data\map\markers\nato\b_maint.paa"; // Engineers
-_mech = "\A3\ui_f\data\map\markers\nato\b_mech_inf.paa"; // IFV/APC
-_armor = "\A3\ui_f\data\map\markers\nato\b_armor.paa"; // Tank
-_air = "\A3\ui_f\data\map\markers\nato\b_air.paa"; // Helos
-_plane = "\A3\ui_f\data\map\markers\nato\b_plane.paa"; // Planes
-_artillery = "\A3\ui_f\data\map\markers\nato\b_art.paa"; // Artillery
+// Colors
+#define RED [1,0,0,1];
+#define GREEN [0,1,0,1];
+#define BLUE [0,0,1,1];
+#define YELLOW [1,1,0,1];
+#define ORANGE [1,0.647,0,1];
+#define BLACK [0,0,0,1];
+#define PINK [1,0.753,0.796,1];
+#define WHITE [1,1,1,1];
+// Icon Paths
+#define FIRETEAM_ICON "\A3\ui_f\data\map\markers\nato\b_inf.paa";
+#define UNKNOWN_ICON "\A3\ui_f\data\map\markers\nato\b_unknown.paa";
+#define HQ_ICON "\A3\ui_f\data\map\markers\nato\bHQ_ICON.paa";
+#define SUPPORT_ICON "\A3\ui_f\data\map\markers\nato\b_support.paa"; // MMG HMG
+#define SUPPORT_AT_ICON "\A3\ui_f\data\map\markers\nato\b_motor_inf.paa"; // MAT HAT
+#define RECON_ICON "\A3\ui_f\data\map\markers\nato\b_recon.paa"; // Sniper
+#define MORTAR_ICON "\A3\ui_f\data\map\markers\nato\b_mortar.paa"; // Mortar
+#define MAINTENANCE_ICON "\A3\ui_f\data\map\markers\nato\b_maint.paa"; // Engineers
+#define MECH_ICON "\A3\ui_f\data\map\markers\nato\b_mech_inf.paa"; // IFV/APC
+#define ARMOR_ICON "\A3\ui_f\data\map\markers\nato\b_armor.paa"; // Tank
+#define AIR_ICON "\A3\ui_f\data\map\markers\nato\b_air.paa"; // Helos
+#define PLANE_ICON "\A3\ui_f\data\map\markers\nato\b_plane.paa"; // Planes
+#define ARTILLERY_ICON "\A3\ui_f\data\map\markers\nato\b_art.paa"; // Artillery
+#define MEDIC_ICON "\A3\ui_f\data\map\markers\nato\bMEDIC_ICON.paa"; // Medic
+// Sizes
+#define NORMAL_SIZE [24, 24];
+#define SMALL_SIZE [16, 16];
 
-_med = "\A3\ui_f\data\map\markers\nato\b_med.paa"; // Medic
+params ["_input"];
 
-_size = [24,24];
-
-_input = _this select 0;
-_texture = _unknown;
-_color = [1,1,1,1];
-switch true do {
-    case (_input in ["COY","1PLT","2PLT","CO","DC"]): {
-        _texture = _hq;
-        _color = _yellow;
-    };
-    case (_input in ["ASL"]): {
-        _texture = _hq;
-        _color = _red;
-    };
-    case (_input in ["A1","A2","A3","ASR"]): {
-        _texture = _fireteam;
-        _color = _red;
-    };
-    case (_input in ["BSL"]): {
-        _texture = _hq;
-        _color = _blue;
-    };
-    case (_input in ["B1","B2","B3","BSR"]): {
-        _texture = _fireteam;
-        _color = _blue;
-    };
-    case (_input in ["CSL"]): {
-        _texture = _hq;
-        _color = _green;
-    };
-    case (_input in ["C1","C2","C3","CSR"]): {
-        _texture = _fireteam;
-        _color = _green;
-    };
-     case (_input in ["DSL"]):
-    {
-        _texture = _hq;
-        _color = _red;
-    };
-    case (_input in ["D1","D2","D3","DSR"]): {
-        _texture = _fireteam;
-        _color = _red;
-    };
-    case (_input in ["ESL"]): {
-        _texture = _hq;
-        _color = _blue;
-    };
-    case (_input in ["E1","E2","E3","ESR"]): {
-        _texture = _fireteam;
-        _color = _blue;
-    };
-    case (_input in ["FSL"]): {
-        _texture = _hq;
-        _color = _green;
-    };
-    case (_input in ["F1","F2","F3","FSR"]): {
-        _texture = _fireteam;
-        _color = _green;
-    };
-    case (_input in ["WSL"]): {
-        _texture = _hq;
-        _color = _orange;
-    };
-    case (_input in ["MMG1","MMG2","MMG3"]): {
-        _texture = _support;
-        _color = _orange ;
-    };
-    case (_input in ["HMG1","HMG2","HMG3"]): {
-        _texture = _support;
-        _color = _orange ;
-    };
-    case (_input in ["MAT1","MAT2","MAT3"]): {
-        _texture = _supportAT;
-        _color = _orange ;
-    };
-    case (_input in ["HAT1","HAT2","HAT3"]): {
-        _texture = _supportAT;
-        _color = _orange ;
-    };
-    case (_input in ["MTR1","MTR2","MTR3"]): {
-        _texture = _mortar;
-        _color = _orange ;
-    };
-    case (_input in ["MSAM1","MSAM2","MSAM3"]): {
-        _texture = _supportAT;
-        _color = _orange ;
-    };
-    case (_input in ["HSAM1","HSAM2","HSAM3"]): {
-        _texture = _supportAT;
-        _color = _orange ;
-    };
-    case (_input in ["ST1","ST2","ST3"]): {
-        _texture = _recon;
-        _color = _orange ;
-    };
-    case (_input in ["DT1","DT2","DT3"]): {
-        _texture = _recon;
-        _color = _orange ;
-    };
-    case (_input in ["ENG1","ENG2","ENG3"]): {
-        _texture = _maint;
-        _color = _orange ;
-    };
-    case (_input in ["IFV1","IFV2"]): {
-        _texture = _mech;
-        _color = _red;
-    };
-    case (_input in ["IFV3","IFV4"]): {
-        _texture = _mech;
-        _color = _blue;
-    };
-    case (_input in ["IFV5","IFV6"]): {
-        _texture = _mech;
-        _color = _green;
-    };
-    case (_input in ["IFV7","IFV8"]): {
-        _texture = _mech;
-        _color = _orange ;
-    };
-    case (_input in ["TNK1","TNK2","TNK3"]): {
-        _texture = _armor;
-        _color = _red;
-    };
-    case (_input in ["TH1","TH2"]): {
-        _texture = _air;
-        _color = _red;
-    };
-    case (_input in ["TH3","TH4"]): {
-        _texture = _air;
-        _color = _blue;
-    };
-    case (_input in ["TH5","TH6"]): {
-        _texture = _air;
-        _color = _green;
-    };
-    case (_input in ["TH7","TH8"]): {
-        _texture = _air;
-        _color = _orange ;
-    };
-    case (_input in ["AH1","AH2","AH3"]): {
-        _texture = _air;
-        _color = _orange ;
-    };
-    case (_input in ["COM","DCM","P1M","P2M","AM","BM","CM","DM","EM","FM","WSM"]): {
-        _texture = _med;
-        _color = _pink;
-        _size = [16,16];
-    };
+if (isNil "F_markers_groupMarkerStyleSettings") then {
+  F_markers_groupMarkerStyleSettings = [[], [], []];
+  [F_markers_groupMarkerStyleSettings, ["COY", "1PLT", "2PLT", "CO", "DC"], [HQ_ICON, YELLOW, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["ASL"], [HQ_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["A1", "A2", "A3", "ASR"], [FIRETEAM_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["BSL"], [HQ_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["B1", "B2", "B3", "BSR"], [FIRETEAM_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["CSL"], [HQ_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["C1", "C2", "C3", "CSR"], [FIRETEAM_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["DSL"], [HQ_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["D1","D2","D3","DSR"], [FIRETEAM_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["ESL"], [HQ_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["E1", "E2", "E3", "ESR"], [FIRETEAM_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["FSL"], [HQ_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["F1", "F2", "F3", "FSR"], [FIRETEAM_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["WSL"], [HQ_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["MMG1", "MMG2", "MMG3"], [SUPPORT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["HMG1", "HMG2", "HMG3"], [SUPPORT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["MAT1", "MAT2", "MAT3"], [SUPPORT_AT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["HAT1", "HAT2", "HAT3"], [SUPPORT_AT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["MSAM1", "MSAM2", "MSAM3"], [SUPPORT_AT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["HSAM1", "HSAM2", "HSAM3"], [SUPPORT_AT_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["MTR1", "MTR2", "MTR3"], [MORTAR_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["ST1", "ST2", "ST3"], [RECON_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["DT1", "DT2", "DT3"], [RECON_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["ENG1", "ENG2", "ENG3"], [MAINTENANCE_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["IFV1", "IFV2"], [MECH_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["IFV3", "IFV4"], [MECH_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["IFV5", "IFV6"], [MECH_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["IFV7", "IFV8"], [MECH_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["TNK1", "TNK2", "TNK3"], [ARMOR_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["TH1", "TH2"], [AIR_ICON, RED, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["TH3", "TH4"], [AIR_ICON, BLUE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["TH5", "TH6"], [AIR_ICON, GREEN, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["TH7", "TH8"], [AIR_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["AH1", "AH2", "AH3"], [AIR_ICON, ORANGE, NORMAL_SIZE]] call F_fnc_addAllOneToMany;
+  [F_markers_groupMarkerStyleSettings, ["COM", "DCM", "P1M", "P2M", "AM", "BM", "CM", "DM", "EM", "FM", "WSM"], [MEDIC_ICON, PINK, SMALL_SIZE]] call F_fnc_addAllOneToMany;
 };
-[_texture,_color,_size];
+
+private _result = [F_markers_groupMarkerStyleSettings, _input] call F_fnc_getOneToManyByKey;
+
+if (isNil "_result") exitWith { [UNKNOWN_ICON, WHITE, NORMAL_SIZE] };
+_result
